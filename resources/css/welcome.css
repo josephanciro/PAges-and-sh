@@ -1,0 +1,1162 @@
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f4ee;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           SECTION FADE EFFECT
+           ===================================================== */
+
+        .hero-section,
+        .auth-section,
+        .video-section {
+            opacity: 0.45;
+
+            transition:
+                opacity 0.8s ease,
+                filter 0.8s ease;
+
+            scroll-snap-align: start;
+        }
+
+        .hero-section.active-section,
+        .auth-section.active-section,
+        .video-section.active-section {
+            opacity: 1;
+
+            filter: none;
+        }
+
+
+        /* =====================================================
+           FIRST SECTION
+           ===================================================== */
+
+        .hero-section {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            color: white;
+
+            padding: 65px clamp(35px, 6vw, 90px);
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                ),
+                url("https://worldgreeninfrastructurenetwork.org/wp-content/uploads/2021/04/0b437c01db8f1d982bebb297c677d5aa.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        /* =====================================================
+           LOGO
+           ===================================================== */
+
+        .hero-section .logo {
+            position: absolute;
+
+            top: 65px;
+            left: clamp(35px, 6vw, 90px);
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo-box {
+            width: 23px;
+            height: 18px;
+
+            border: 3px solid #d7f56b;
+
+            position: relative;
+        }
+
+        .logo-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 7px;
+            height: 8px;
+
+            background: #d7f56b;
+
+            bottom: 0;
+            left: 5px;
+        }
+
+        .logo span {
+            color: #d7f56b;
+        }
+
+
+        /* =====================================================
+           MOVING PROJECT TEXT
+           ===================================================== */
+
+        .project {
+            position: absolute;
+
+            top: 50px;
+            left: 50%;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+
+            color: #a4b9b5;
+            font-weight: bold;
+
+            white-space: nowrap;
+
+            animation: moveLeft 10s linear infinite;
+        }
+
+
+        /* =====================================================
+           INTRO CONTENT
+           ===================================================== */
+
+        .hero-section .intro {
+            width: 100%;
+            max-width: 850px;
+
+            margin-top: 40px;
+            margin-left: 0;
+            margin-right: 0;
+
+            opacity: 0;
+            transform: translateY(30px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .hero-section.active-section .intro {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .small-title {
+            color: #d7f56b;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 25px;
+        }
+
+        .small-title::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #d7f56b;
+
+            margin-right: 10px;
+        }
+
+
+        /* =====================================================
+           MAIN HEADING
+           ===================================================== */
+
+        .hero-section h1 {
+            width: 100%;
+            max-width: 780px;
+
+            font-size: clamp(52px, 5.3vw, 76px);
+
+            line-height: 1.02;
+
+            font-weight: 400;
+
+            letter-spacing: -3px;
+        }
+
+        .hero-section h1 .green {
+            color: #d7f56b;
+
+            animation: glow 4s ease-in-out infinite alternate;
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+           ===================================================== */
+
+        .description {
+            width: 100%;
+            max-width: 620px;
+
+            margin-top: 25px;
+
+            color: #b8ceca;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           HERO BUTTONS
+           ===================================================== */
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 14px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons button {
+            min-width: 130px;
+
+            padding: 13px 24px;
+
+            border-radius: 4px;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .login-hero-btn {
+            border: 1px solid #d7f56b;
+
+            background: #d7f56b;
+
+            color: #123f3a;
+        }
+
+        .login-hero-btn:hover {
+            background: #c9e95d;
+
+            transform: translateY(-2px);
+        }
+
+        .signup-hero-btn {
+            border: 1px solid rgba(215, 245, 107, 0.7);
+
+            background: transparent;
+
+            color: white;
+        }
+
+        .signup-hero-btn:hover {
+            background: rgba(215, 245, 107, 0.12);
+
+            border-color: #d7f56b;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           SECOND SECTION
+           ===================================================== */
+
+        .auth-section {
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 70px 30px;
+
+            background: #f5f4ee;
+
+            color: #123b3a;
+        }
+
+
+        /* =====================================================
+           FORM CONTAINER
+           ===================================================== */
+
+        .form-container {
+            width: 100%;
+            max-width: 410px;
+
+            margin: auto;
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.9s ease,
+                transform 0.9s ease;
+        }
+
+        .form-container.show-form {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           ACCESS
+           ===================================================== */
+
+        .access {
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            font-weight: bold;
+
+            color: #708d87;
+
+            margin-bottom: 25px;
+        }
+
+        .access::before {
+            content: "";
+
+            display: inline-block;
+
+            width: 20px;
+            height: 1px;
+
+            background: #9caf93;
+
+            vertical-align: middle;
+
+            margin-right: 12px;
+        }
+
+
+        /* =====================================================
+           FORM TITLE
+           ===================================================== */
+
+        h2 {
+            font-size: 43px;
+
+            font-weight: 400;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #71817e;
+
+            font-size: 13px;
+
+            margin-bottom: 36px;
+        }
+
+
+        /* =====================================================
+           TABS
+           ===================================================== */
+
+        .tabs {
+            display: flex;
+
+            background: #ecebe4;
+
+            border: 1px solid #e1e0d8;
+
+            border-radius: 9px;
+
+            padding: 3px;
+
+            margin-bottom: 28px;
+        }
+
+        .tab {
+            width: 50%;
+
+            padding: 14px;
+
+            text-align: center;
+
+            border: none;
+
+            background: transparent;
+
+            color: #536865;
+
+            cursor: pointer;
+
+            border-radius: 7px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .tab.active {
+            background: white;
+
+            box-shadow: 0 1px 4px #00000014;
+
+            color: #123f3a;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           FORM SWITCHER
+           ===================================================== */
+
+        .form-switcher {
+            position: relative;
+
+            min-height: 350px;
+        }
+
+        .form-panel {
+            width: 100%;
+
+            opacity: 0;
+
+            transform: translateX(20px);
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease;
+
+            pointer-events: none;
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+        }
+
+        .form-panel.active-form {
+            opacity: 1;
+
+            transform: translateX(0);
+
+            pointer-events: auto;
+
+            position: relative;
+        }
+
+
+        /* =====================================================
+           INPUTS
+           ===================================================== */
+
+        label {
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-bottom: 9px;
+        }
+
+        .input-box {
+            position: relative;
+
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+
+            height: 48px;
+
+            border: 1px solid #d9ddd6;
+
+            border-radius: 7px;
+
+            background: #fff;
+
+            padding: 0 15px;
+
+            font-size: 13px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        input:focus {
+            border-color: #547f77;
+
+            box-shadow:
+                0 0 0 3px rgba(84, 127, 119, 0.08);
+        }
+
+        .icon {
+            position: absolute;
+
+            right: 14px;
+            top: 15px;
+
+            color: #83928e;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            color: #0d302d;
+        }
+
+
+        /* =====================================================
+           WORKSPACE
+           ===================================================== */
+
+        .workspace {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #65807a;
+
+            font-size: 10px;
+
+            margin: 5px 0 20px;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+           ===================================================== */
+
+        .login-btn {
+            width: 100%;
+
+            height: 50px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #123f3a;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            padding: 0 18px;
+
+            font-size: 13px;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .login-btn:hover {
+            background: #0d302d;
+        }
+
+        .login-btn:active {
+            transform: scale(0.99);
+        }
+
+        .arrow {
+            float: right;
+
+            color: #d7f56b;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           BOTTOM TEXT
+           ===================================================== */
+
+        .bottom-text {
+            text-align: center;
+
+            margin-top: 28px;
+
+            color: #84918e;
+
+            font-size: 11px;
+        }
+
+        .bottom-text a {
+            color: #123f3a;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            transition: color 0.2s ease;
+        }
+
+        .bottom-text a:hover {
+            color: #6b8c35;
+        }
+
+
+        /* =====================================================
+           FORM TITLE ANIMATION
+           ===================================================== */
+
+        #formTitle,
+        #formSubtitle {
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .text-switch {
+            opacity: 0;
+
+            transform: translateY(5px);
+        }
+
+
+        /* =====================================================
+           THIRD SECTION - VIDEO
+           ===================================================== */
+
+        .video-section {
+            width: 100%;
+
+            min-height: 100vh;
+            min-height: 100svh;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #123f3a;
+
+            color: white;
+        }
+
+
+        /* VIDEO */
+
+        .background-video {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: 0;
+
+            transition:
+                opacity 1s ease;
+        }
+
+
+        /* VIDEO OVERLAY */
+
+        .video-overlay {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    rgba(18, 63, 58, 0.78),
+                    rgba(18, 63, 58, 0.88)
+                );
+
+            z-index: 1;
+        }
+
+
+        /* VIDEO CONTENT */
+
+        .video-content {
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 850px;
+
+            padding: 50px 30px;
+
+            text-align: center;
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .video-section.active-section .video-content {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .video-label {
+            color: #d7f56b;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .video-content h2 {
+            color: white;
+
+            font-size: clamp(40px, 6vw, 70px);
+
+            line-height: 1.05;
+
+            font-weight: 400;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .video-content h2 span {
+            color: #d7f56b;
+        }
+
+        .video-content p {
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: #c3d3d0;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .hero-section {
+                min-height: 100svh;
+
+                padding: 120px 45px 70px;
+
+                justify-content: center;
+            }
+
+            .hero-section .logo {
+                top: 35px;
+
+                left: 45px;
+            }
+
+            .hero-section .project {
+                display: none;
+            }
+
+            .hero-section .intro {
+                max-width: 700px;
+
+                margin-top: 0;
+            }
+
+            .hero-section h1 {
+                font-size: clamp(46px, 8vw, 64px);
+
+                letter-spacing: -2px;
+            }
+
+            .hero-section .description {
+                max-width: 560px;
+            }
+
+            .hero-buttons {
+                margin-top: 30px;
+            }
+
+            .auth-section {
+                min-height: 100svh;
+
+                padding: 70px 40px;
+            }
+
+            .video-content {
+                padding: 50px 35px;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                width: 100%;
+
+                overflow-x: hidden;
+            }
+
+            .hero-section {
+                width: 100%;
+
+                min-height: 100svh;
+
+                padding:
+                    100px
+                    24px
+                    50px;
+
+                justify-content: center;
+
+                align-items: flex-start;
+            }
+
+            .hero-section .logo {
+                position: absolute;
+
+                top: 30px;
+
+                left: 24px;
+
+                font-size: 17px;
+
+                gap: 12px;
+            }
+
+            .hero-section .logo-box {
+                width: 21px;
+
+                height: 17px;
+            }
+
+            .hero-section .project {
+                display: none;
+            }
+
+            .hero-section .intro {
+                width: 100%;
+
+                max-width: none;
+
+                margin: 0;
+            }
+
+            .hero-section .small-title {
+                font-size: 10px;
+
+                letter-spacing: 1.2px;
+
+                margin-bottom: 20px;
+            }
+
+            .small-title::before {
+                width: 8px;
+
+                height: 8px;
+
+                margin-right: 8px;
+            }
+
+            .hero-section h1 {
+                width: 100%;
+
+                max-width: 100%;
+
+                font-size: clamp(38px, 11vw, 52px);
+
+                line-height: 1.04;
+
+                letter-spacing: -1.8px;
+            }
+
+            .hero-section .description {
+                width: 100%;
+
+                max-width: 470px;
+
+                margin-top: 22px;
+
+                font-size: 13px;
+
+                line-height: 1.6;
+            }
+
+            .hero-buttons {
+                width: 100%;
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                margin-top: 28px;
+            }
+
+            .hero-buttons button {
+                width: 100%;
+
+                min-width: 0;
+
+                padding: 14px 20px;
+            }
+
+            .auth-section {
+                width: 100%;
+
+                min-height: 100svh;
+
+                padding:
+                    60px
+                    24px;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+            }
+
+            .form-container {
+                width: 100%;
+
+                max-width: 420px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            #formSubtitle {
+                font-size: 13px;
+
+                line-height: 1.5;
+            }
+
+            .tab {
+                padding: 13px 8px;
+            }
+
+            input {
+                height: 48px;
+            }
+
+            .workspace {
+                gap: 10px;
+
+                font-size: 9px;
+            }
+
+            .video-section {
+                min-height: 100svh;
+            }
+
+            .video-content {
+                padding: 40px 24px;
+            }
+
+            .video-label {
+                font-size: 10px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .video-content h2 {
+                font-size: clamp(36px, 11vw, 50px);
+
+                letter-spacing: -1.5px;
+
+                margin-bottom: 20px;
+            }
+
+            .video-content p {
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+           ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .hero-section {
+                padding:
+                    95px
+                    20px
+                    40px;
+            }
+
+            .hero-section .logo {
+                left: 20px;
+
+                top: 25px;
+            }
+
+            .hero-section h1 {
+                font-size: 36px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .hero-section .description {
+                font-size: 12px;
+            }
+
+            .hero-buttons {
+                margin-top: 24px;
+            }
+
+            .hero-buttons button {
+                padding: 13px 18px;
+            }
+
+            .auth-section {
+                padding:
+                    50px
+                    20px;
+            }
+
+            h2 {
+                font-size: 29px;
+            }
+
+            .video-content {
+                padding: 35px 20px;
+            }
+
+            .video-content h2 {
+                font-size: 34px;
+            }
+
+            .video-content p {
+                font-size: 12px;
+            }
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+           ===================================================== */
+
+        @keyframes glow {
+
+            from {
+                text-shadow:
+                    0 0 2px #d7f56b;
+            }
+
+            to {
+                text-shadow:
+                    0 0 4px #d7f56b,
+                    0 0 5px #d7f56b;
+            }
+        }
+
+        @keyframes moveLeft {
+
+            from {
+                transform: translateX(35vw);
+            }
+
+            to {
+                transform: translateX(-300%);
+            }
+        }
+
