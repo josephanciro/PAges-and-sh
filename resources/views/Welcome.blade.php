@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,44 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ProjectManager Login</title>
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-    @vite(['resources/css/welcome.css', 'resources/js/welcome.js'])
-    
-</head>
 
+    @vite(['resources/css/welcome.css','resources/js/welcome.js'])
+</head>
 
 <body>
 
-
     <!-- =====================================================
          FIRST SECTION
-         ===================================================== -->
+    ====================================================== -->
 
-    <section
-        class="hero-section active-section"
-        id="hero">
-
+    <section class="hero-section active-section" id="hero">
 
         <div class="logo">
-
             <div class="logo-box"></div>
-
             Project<span>Manager</span>
-
         </div>
-
 
         <div class="project">
             PROJECT MANAGEMENT WORKSPACE
         </div>
-
 
         <div class="intro">
 
             <div class="small-title">
                 BUILT FOR THE LONG VIEW
             </div>
-
 
             <h1>
                 Good infrastructure<br>
@@ -54,12 +43,10 @@
                 </span>
             </h1>
 
-
             <p class="description">
                 Bring projects, teams, and milestones together —
                 from the first plan to the final handover.
             </p>
-
 
             <div class="hero-buttons">
 
@@ -67,19 +54,14 @@
                     type="button"
                     class="login-hero-btn"
                     onclick="goToLogin('login')">
-
                     LOGIN
-
                 </button>
-
 
                 <button
                     type="button"
                     class="signup-hero-btn"
                     onclick="goToLogin('register')">
-
                     SIGN UP
-
                 </button>
 
             </div>
@@ -89,15 +71,11 @@
     </section>
 
 
-
     <!-- =====================================================
          SECOND SECTION
-         ===================================================== -->
+    ====================================================== -->
 
-    <section
-        class="auth-section"
-        id="login">
-
+    <section class="auth-section" id="login">
 
         <div class="form-container">
 
@@ -105,49 +83,37 @@
                 WORKSPACE ACCESS
             </div>
 
-
             <h2 id="formTitle">
                 Welcome back
             </h2>
 
-
-            <p
-                class="subtitle"
-                id="formSubtitle">
-
+            <p class="subtitle" id="formSubtitle">
                 Sign in to pick up where your team left off.
-
             </p>
-
 
             <div class="tabs">
 
                 <button
+                    type="button"
                     class="tab active"
                     id="signInTab"
                     onclick="showLogin()">
-
                     Sign in
-
                 </button>
 
-
                 <button
+                    type="button"
                     class="tab"
                     id="registerTab"
                     onclick="showRegister()">
-
                     Create account
-
                 </button>
 
             </div>
 
-
             <div class="form-switcher">
 
-
-                <!-- LOGIN -->
+                <!-- LOGIN FORM -->
 
                 <form
                     action="{{ route('SignInForm') }}"
@@ -159,31 +125,26 @@
                         id="loginForm"
                         class="form-panel active-form">
 
-
-                        <label>
+                        <label for="loginEmail">
                             Work email
                         </label>
-
 
                         <div class="input-box">
 
                             <input
                                 type="email"
+                                id="loginEmail"
                                 placeholder="you@company.com"
                                 name="EEmail"
-                            >
+                                required>
 
-                            <span class="icon">
-                                ✉
-                            </span>
+                            <span class="icon">✉</span>
 
                         </div>
 
-
-                        <label>
+                        <label for="loginPassword">
                             Password
                         </label>
-
 
                         <div class="input-box">
 
@@ -192,21 +153,18 @@
                                 id="loginPassword"
                                 placeholder="Enter your password"
                                 name="PPassword"
-                            >
+                                required>
 
                             <span
                                 class="icon"
-                                onclick="togglePassword(
-                                    'loginPassword',
-                                    this
-                                )">
-
+                                role="button"
+                                tabindex="0"
+                                onclick="togglePassword('loginPassword', this)"
+                                onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); togglePassword('loginPassword', this); }">
                                 👁
-
                             </span>
 
                         </div>
-
 
                         <div class="workspace">
 
@@ -220,19 +178,15 @@
 
                         </div>
 
-
                         <button
                             type="submit"
                             class="login-btn">
 
                             Sign in to ProjectManager
 
-                            <span class="arrow">
-                                →
-                            </span>
+                            <span class="arrow">→</span>
 
                         </button>
-
 
                         <div class="bottom-text">
 
@@ -240,24 +194,16 @@
 
                             <a
                                 href="#"
-                                onclick="
-                                    showRegister();
-                                    return false;
-                                ">
-
+                                onclick="showRegister(); return false;">
                                 Create an account
-
                             </a>
 
-
                             <br>
                             <br>
 
-
-                            <a href="/Admin.blade.php">
-
+                            <!-- Replace with your actual Laravel admin route -->
+                            <a href="{{ url('/admin') }}">
                                 TO ADMIN DASH
-
                             </a>
 
                         </div>
@@ -267,12 +213,12 @@
                 </form>
 
 
-
-                <!-- REGISTER -->
+                <!-- REGISTER FORM -->
 
                 <form
-                    action=""
-                    method="POST">
+                    action="#"
+                    method="POST"
+                    onsubmit="return false;">
 
                     @csrf
 
@@ -280,63 +226,62 @@
                         id="registerForm"
                         class="form-panel">
 
-
-                        <label>
+                        <label for="registerName">
                             Full name
                         </label>
-
 
                         <div class="input-box">
 
                             <input
                                 type="text"
+                                id="registerName"
+                                name="name"
                                 placeholder="Your name"
-                            >
+                                autocomplete="name"
+                                required>
 
                         </div>
 
-
-                        <label>
+                        <label for="registerEmail">
                             Work email
                         </label>
-
 
                         <div class="input-box">
 
                             <input
                                 type="email"
+                                id="registerEmail"
+                                name="email"
                                 placeholder="you@company.com"
-                            >
+                                autocomplete="email"
+                                required>
 
                         </div>
 
-
-                        <label>
+                        <label for="registerPassword">
                             Password
                         </label>
-
 
                         <div class="input-box">
 
                             <input
                                 type="password"
                                 id="registerPassword"
+                                name="password"
                                 placeholder="Create a password"
-                            >
+                                autocomplete="new-password"
+                                required>
 
                             <span
                                 class="icon"
-                                onclick="togglePassword(
-                                    'registerPassword',
-                                    this
-                                )">
-
+                                role="button"
+                                tabindex="0"
+                                onclick="togglePassword('registerPassword', this)"
+                                onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); togglePassword('registerPassword', this); }">
                                 👁
-
                             </span>
 
                         </div>
-
 
                         <button
                             type="submit"
@@ -344,12 +289,9 @@
 
                             Create ProjectManager account
 
-                            <span class="arrow">
-                                →
-                            </span>
+                            <span class="arrow">→</span>
 
                         </button>
-
 
                         <div class="bottom-text">
 
@@ -357,13 +299,8 @@
 
                             <a
                                 href="#"
-                                onclick="
-                                    showLogin();
-                                    return false;
-                                ">
-
+                                onclick="showLogin(); return false;">
                                 Sign in
-
                             </a>
 
                         </div>
@@ -379,15 +316,13 @@
     </section>
 
 
-
     <!-- =====================================================
          THIRD SECTION
-         ===================================================== -->
+    ====================================================== -->
 
     <section
         class="video-section"
         id="videoSection">
-
 
         <video
             class="background-video"
@@ -405,9 +340,7 @@
 
         </video>
 
-
         <div class="video-overlay"></div>
-
 
         <div class="video-content">
 
@@ -415,12 +348,10 @@
                 PROJECTMANAGER
             </div>
 
-
             <h2>
                 Plan clearly.<br>
                 Build <span>better.</span>
             </h2>
-
 
             <p>
                 Keep your projects, teams, tasks, and infrastructure
@@ -431,10 +362,6 @@
 
     </section>
 
-
-
-
-  <script src="{{ asset('js/welcome.js') }}"></script>
 </body>
 
 </html>
