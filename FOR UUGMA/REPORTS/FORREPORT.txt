@@ -1,0 +1,13 @@
+ADDED REPORTS ON VIEWS/COMPONENTS/SIDEBAR
+
+<a href="{{ route('reports.index') }}"
+   class="{{ request()->routeIs('reports.*') ? 'active' : '' }}"
+   @if(request()->routeIs('reports.*')) aria-current="page" @endif>
+    <i class="menu-icon fa-solid fa-chart-column"></i>
+    <span class="sidebar-label">Reports</span>
+</a>
+
+MADE REPORT FOLDER FOR VIEWS/CSS/JS with INDEX NAME
+ADDED ROUTE FOR THE REPORTS
+
+ Route::view('/reports', 'reports.index')->name('reports.index');
