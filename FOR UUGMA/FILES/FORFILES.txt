@@ -1,0 +1,15 @@
+ADDED FILES ON VIEWS/COMPONENTS/SIDEBAR
+
+<a href="{{ route('files.index') }}"
+   class="{{ request()->routeIs('files.*') ? 'active' : '' }}"
+   @if(request()->routeIs('files.*')) aria-current="page" @endif>
+    <i class="menu-icon fa-solid fa-folder"></i>
+    <span class="sidebar-label">Files</span>
+</a>
+
+MADE FILES FOLDER FOR VIEWS/CSS/JS with INDEX NAME
+ADDED ROUTE FOR THE FILES
+
+ Route::view('/files', 'files.index')->name('files.index');
+
+also forgot to mention add the inputs on vite.config.js
